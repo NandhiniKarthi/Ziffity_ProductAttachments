@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="regulatory_document_general_email_templates" label="Email Template" file="regulatory_templates.html" type="html" module="Ziffity_ProductAttachments" area="frontend"/>
+</config>

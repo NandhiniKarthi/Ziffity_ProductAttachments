@@ -1,0 +1,15 @@
+<?php $collection = $block->getCollection(); ?>
+
+<?php if ($collection && $collection->count()>0) { ?>
+<p>Our automated regulatory documentation process offers quick access to information,
+     provides speed-to-market, 
+     and allows you to stay ahead of your competition.</p>
+
+<div id="formulary-document">
+    <ul>
+            <?php foreach ($collection as $attachment): ?>
+                <li><a href="#"><?=($attachment->getData('filename')); ?></a></li>
+            <?php endforeach; ?>
+    </ul>
+</div>
+<?php } ?>

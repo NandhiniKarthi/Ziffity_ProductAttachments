@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="product_attachments_files" resource="default" engine="innodb" comment="Product Attachments Files">
+    <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Id"/>
+    <column xsi:type="int" name="type" nullable="false" comment="Type"/>
+    <column xsi:type="varchar" name="extension" nullable="true" length="255" comment="Extension"/>
+    <column xsi:type="varchar" name="size" nullable="true" length="255" comment="Size"/>
+    <column xsi:type="varchar" name="file" nullable="true" length="255" comment="File"/>
+    <column xsi:type="varchar" name="tmp_name" nullable="true" length="255" comment="Temporary Name"/>
+    <column xsi:type="varchar" name="path" nullable="true" length="255" comment="File Path"/>
+    <column xsi:type="varchar" name="filename" nullable="true" length="255" comment="File Name"/>
+    <column xsi:type="varchar" name="basename" nullable="true" length="255" comment="File Base Name"/>
+    <column xsi:type="text" name="products" nullable="true" comment="Products"/>
+    <column xsi:type="int" name="active" default="1" nullable="false" comment="Active"/>
+    <column xsi:type="int" name="sort" default="0" nullable="false" comment="Sort"/>
+ 	<column xsi:type="timestamp" name="edited" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated On"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="id"/>
+    </constraint>
+  </table>   
+  <table name="product_attachments_files_mapping" resource="default" engine="innodb" comment="Product Attachment File Mapping">
+        <column name="id" xsi:type="int" identity="true" unsigned="true" nullable="false" comment="Mapping ID" />
+        <column name="attachment_id" xsi:type="text" nullable="true" comment="Attachment ID" />
+        <column name="product_id" xsi:type="int" unsigned="true" nullable="true" comment="Product Id" />
+        <constraint xsi:type="primary" referenceId="PRIMARY"><column name="id" /></constraint>
+    </table>
+</schema>

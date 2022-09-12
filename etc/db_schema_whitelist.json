@@ -1,0 +1,33 @@
+{
+    "product_attachments_files": {
+        "column": {
+            "id": true,
+            "type": true,
+            "extension": true,
+            "size": true,
+            "file": true,
+            "tmp_name": true,
+            "path": true,
+            "filename": true,
+            "basename": true,
+			"products": true,
+            "active": true,
+            "sort": true,
+            "edited": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    } ,  
+	"product_attachments_files_mapping": {
+        "column": {
+            "id": true,
+            "attachment_id": true,
+            "product_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_AE0541C428579FC141904B5D985FC5789": true
+        }
+    }
+}
