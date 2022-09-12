@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+        <add id="Ziffity_ProductAttachments::top_level" title="Product Attachments" module="Ziffity_ProductAttachments" sortOrder="30" resource="Ziffity_ProductAttachments::manage" parent="Magento_Catalog::catalog"/>
+        <add id="Ziffity_ProductAttachments::productattachment_manage" title="Manage Product Attachments" module="Ziffity_ProductAttachments" sortOrder="10" parent="Ziffity_ProductAttachments::top_level" action="zy_attachments/files" resource="Ziffity_ProductAttachments::manage"/>
+	</menu>
+</config>

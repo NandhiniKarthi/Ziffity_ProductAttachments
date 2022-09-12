@@ -1,0 +1,74 @@
+<?php
+/**
+ * Attachments
+ */
+?>
+
+<?php $ajaxurl = $block->getFormAction(); ?>
+<?php $collection = $block->getCollection(); ?>
+
+<?php if ($collection && $collection->count()>0) { ?>
+
+<p> Our automated regulatory documentation process offers quick access to information, 
+    provides speed-to-market, 
+    and allows you to stay ahead of your competition.</p>
+
+<div id="regulatory-document">
+    <form class="form contact " 
+    action="<?=  $block->escapeHtml($block->getFormAction()); ?>" 
+    enctype="multipart/form-data" 
+    id="regulatory-form" method="post" 
+    data-hasrequired="<?=('* Required Fields') ?>" 
+    data-mage-init='{"validation":{}}'>
+        <fieldset class="fieldset">
+            <legend class="legend"><span><?= ("Get documentation here:") ?></span></legend>
+            <br />
+            <div class="field email required">
+                <div class="control">
+                    <input name="email" id="email" title="<?=('Email') ?>" 
+                    class="input-text" type="email" 
+                    data-validate="{required:true, 'validate-email':true}" 
+                    placeholder="<?=('Email') ?>" />
+                </div>
+            </div>
+            <div class="field document required">
+                <div class="control">
+                    <select name="document" id="document" data-validate="{required:true, 'validate-select':true}">
+                        <option value=""><?=('Select Regulatory Documents')?></option>
+                        <?php if ($collection->count()>0): ?>
+                            <?php foreach ($collection as $attachment): ?>
+                                <option value="<?=($attachment->getData('id')); ?>">
+                            
+                                <?=($attachment->getData('filename')); ?></option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <input type="hidden" name="form-key" id="form-key"
+                 value="<?= $block->escapeHtml($block->getFormKey())?>" />
+                <button type="submit" title="<?=('Submit') ?>" 
+                class="action submit primary" id="regulatory_form_btn"> 
+                <span><?= ('Submit') ?></span>
+                </button>
+            </div>
+            <div id="reg-response-msg" class="mb-2 text-danger txt-sm"></div>
+        </div>
+    </form>
+</div>
+
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Ziffity_ProductAttachments/js/productattachment": {
+                    "ajaxUrl": "<?=($ajaxurl); ?>"
+                }
+            }
+        }
+</script>
+
+<?php } ?>
+

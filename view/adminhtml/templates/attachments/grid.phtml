@@ -1,0 +1,27 @@
+<?php
+
+$blockGrid = $block->getBlockGrid();
+$gridJsObjectName = $blockGrid->getJsObjectName();
+?>
+<?= $block->getGridHtml(); ?>
+<input type="hidden" name="<?= $block->escapeHtml($block->getFieldScopeName()); ?>" 
+id="zy_attachments_hidden_input" 
+data-form-part="<?=$block->escapeHtml($block->getFormName()); ?>" value="" />
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Ziffity_ProductAttachments/js/attachments/grid": {
+                "selectedAttachments": <?= $block->escapeHtml($block->getSelectedJson()); ?>,
+                "gridJsObjectName": <?= '"' . $gridJsObjectName . '"' ?: '{}'; ?>
+            }
+        }
+    }
+</script>
+<script>
+    require('mage/apply/main').apply();
+</script>
+<style type="text/css">
+#<?= $block->escapeHtml($blockGrid->getId()) ?> .admin__data-grid-wrap-static {
+    overflow-x: visible;
+}
+</style>

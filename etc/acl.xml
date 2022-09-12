@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+     <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Ziffity_ProductAttachments::root" title = "Product Attachments">
+                    <resource id="Ziffity_ProductAttachments::attach_mod" title="Product Attachments">
+                            <resource id="Ziffity_ProductAttachments::manage" title="Manage" />
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
